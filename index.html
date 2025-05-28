@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linha do Tempo - Jornada Aérea</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="timeline-container" id="timeline">
+        <!-- Nuvens de fundo -->
+        <div class="clouds">
+            <div class="cloud cloud1"></div>
+            <div class="cloud cloud2"></div>
+        </div>
+
+        <!-- Camadas atmosféricas -->
+        <div class="atmosphere-layer troposphere active" id="layer-0"></div>
+        <div class="atmosphere-layer stratosphere" id="layer-1"></div>
+        <div class="atmosphere-layer mesosphere" id="layer-2"></div>
+
+        <!-- Avião -->
+        <div class="airplane" id="airplane">
+            <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="planeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#e74c3c"/>
+                        <stop offset="100%" style="stop-color:#c0392b"/>
+                    </linearGradient>
+                </defs>
+                <!-- Corpo do avião -->
+                <ellipse cx="60" cy="30" rx="45" ry="8" fill="url(#planeGradient)"/>
+                <!-- Asas -->
+                <ellipse cx="40" cy="30" rx="20" ry="3" fill="#34495e"/>
+                <ellipse cx="80" cy="30" rx="15" ry="2" fill="#34495e"/>
+                <!-- Janelas -->
+                <circle cx="45" cy="28" r="3" fill="#3498db" opacity="0.8"/>
+                <circle cx="55" cy="28" r="3" fill="#3498db" opacity="0.8"/>
+                <circle cx="65" cy="28" r="3" fill="#3498db" opacity="0.8"/>
+                <!-- Cauda -->
+                <polygon points="100,25 115,20 115,40 100,35" fill="url(#planeGradient)"/>
+            </svg>
+        </div>
+
+        <!-- Janelas de conteúdo -->
+        <div class="airplane-window active" id="window-0" style="top: 45%; left: 40%; transform: translateX(-50%) translateY(-50%) scale(1);">
+            <div class="window-content">
+                <h2>🛫 Bem-vindo à Bordo!</h2>
+                <p>Você está prestes a embarcar em uma jornada única através das camadas da atmosfera. Esta é uma experiência interativa que combina tecnologia e aventura.</p>
+                <p><a href="#biografia" onclick="showBiography()">📖 Conheça nossa história</a></p>
+            </div>
+        </div>
+
+        <div class="airplane-window" id="window-1" style="top: 20%; left: 55%; transform: translateX(-50%) translateY(-50%) scale(0.5);">
+            <div class="window-content">
+                <h2>🚀 Decolagem Iniciada</h2>
+                <p>Estamos deixando o solo e nos preparando para uma aventura incrível. A tecnologia nos permite explorar novos horizontes de forma inovadora.</p>
+                <p><a href="#projetos" onclick="showProjects()">🔧 Veja nossos projetos</a></p>
+            </div>
+        </div>
+
+        <div class="airplane-window" id="window-2" style="top: 30%; left: 20%; transform: translateX(-50%) translateY(-50%) scale(0.5);">
+            <div class="window-content">
+                <h2>☁️ Cruzando as Nuvens</h2>
+                <p>Agora estamos voando através da troposfera, onde as nuvens dançam ao nosso redor. Esta é a camada onde acontece todo o clima do nosso planeta.</p>
+                <p><a href="#servicos" onclick="showServices()">💼 Nossos serviços</a></p>
+            </div>
+        </div>
+
+        <div class="airplane-window" id="window-3" style="top: 15%; left: 35%; transform: translateX(-50%) translateY(-50%) scale(0.5);">
+            <div class="window-content">
+                <h2>🌌 Estratosfera</h2>
+                <p>Estamos agora na estratosfera, onde o ar é mais rarefeito e o céu começa a escurecer. Uma perspectiva única do nosso mundo.</p>
+                <p><a href="#portfolio" onclick="showPortfolio()">🎨 Portfólio completo</a></p>
+            </div>
+        </div>
+
+        <div class="airplane-window" id="window-4" style="top: 25%; left: 50%; transform: translateX(-50%) translateY(-50%) scale(0.5);">
+            <div class="window-content">
+                <h2>🛬 Preparando Pouso</h2>
+                <p>Nossa jornada está chegando ao fim. Iniciamos a descida com segurança, trazendo conosco todas as experiências vividas nas alturas.</p>
+                <p><a href="#experiencia" onclick="showExperience()">🎯 Nossa experiência</a></p>
+            </div>
+        </div>
+
+        <div class="airplane-window" id="window-5" style="top: 55%; left: 65%; transform: translateX(-50%) translateY(-50%) scale(0.5);">
+            <div class="window-content">
+                <h2>🏁 Missão Cumprida!</h2>
+                <p>Obrigado por nos acompanhar nesta jornada incrível! Esperamos que tenha aproveitado esta experiência única.</p>
+                <div class="contact-form">
+                    <h3>📞 Entre em Contato</h3>
+                    <input type="text" placeholder="Seu nome" required>
+                    <input type="email" placeholder="Seu email" required>
+                    <textarea placeholder="Sua mensagem" rows="3" required></textarea>
+                    <button type="submit" onclick="sendMessage()">Enviar Mensagem</button>
+                </div>
+                <p style="margin-top: 15px;">
+                    <a href="mailto:contato@exemplo.com">📧 Email</a> | 
+                    <a href="https://linkedin.com" target="_blank">💼 LinkedIn</a> | 
+                    <a href="https://github.com" target="_blank">💻 GitHub</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Indicador de progresso -->
+    <div class="progress-indicator">
+        <div class="progress-dot active" data-phase="0"></div>
+        <div class="progress-dot" data-phase="1"></div>
+        <div class="progress-dot" data-phase="2"></div>
+        <div class="progress-dot" data-phase="3"></div>
+        <div class="progress-dot" data-phase="4"></div>
+        <div class="progress-dot" data-phase="5"></div>
+    </div>
+
+    <!-- Navegação -->
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="previousPhase()" disabled>← Anterior</button>
+        <button class="nav-btn" id="nextBtn" onclick="nextPhase()">Próximo →</button>
+    </div>
+
+    <script>
+        let currentPhase = 0;
+        const totalPhases = 6;
+
+        function updatePhase(phase) {
+            const timeline = document.getElementById('timeline');
+            const airplane = document.getElementById('airplane');
+            
+            // Remove todas as classes de fase
+            for (let i = 0; i < totalPhases; i++) {
+                timeline.classList.remove(`phase-${i}`);
+            }
+            
+            // Adiciona a classe da fase atual
+            timeline.classList.add(`phase-${phase}`);
+            
+            // Atualiza janelas
+            document.querySelectorAll('.airplane-window').forEach((window, index) => {
+                if (index === phase) {
+                    window.classList.add('active');
+                } else {
+                    window.classList.remove('active');
+                }
+            });
+            
+            // Atualiza indicadores de progresso
+            document.querySelectorAll('.progress-dot').forEach((dot, index) => {
+                if (index === phase) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+            
+            // Animações especiais
+            if (phase === 1) {
+                airplane.classList.add('takeoff-animation');
+                setTimeout(() => airplane.classList.remove('takeoff-animation'), 2000);
+            } else if (phase === 4) {
+                airplane.classList.add('landing-animation');
+                setTimeout(() => airplane.classList.remove('landing-animation'), 2000);
+            }
+            
+            // Atualiza camadas atmosféricas
+            document.querySelectorAll('.atmosphere-layer').forEach((layer, index) => {
+                layer.classList.remove('active');
+            });
+            
+            if (phase <= 2) {
+                document.getElementById('layer-0').classList.add('active');
+            } else if (phase <= 4) {
+                document.getElementById('layer-1').classList.add('active');
+            } else {
+                document.getElementById('layer-2').classList.add('active');
+            }
+            
+            // Atualiza botões de navegação
+            document.getElementById('prevBtn').disabled = phase === 0;
+            document.getElementById('nextBtn').disabled = phase === totalPhases - 1;
+        }
+
+        function nextPhase() {
+            if (currentPhase < totalPhases - 1) {
+                currentPhase++;
+                updatePhase(currentPhase);
+            }
+        }
+
+        function previousPhase() {
+            if (currentPhase > 0) {
+                currentPhase--;
+                updatePhase(currentPhase);
+            }
+        }
+
+        // Funções de exemplo para os links
+        function showBiography() {
+            alert('Biografia: Aqui você pode criar uma página detalhada sobre sua história, formação e experiências.');
+        }
+
+        function showProjects() {
+            alert('Projetos: Esta seção pode mostrar seus principais trabalhos e realizações.');
+        }
+
+        function showServices() {
+            alert('Serviços: Detalhe aqui os serviços que você oferece aos seus clientes.');
+        }
+
+        function showPortfolio() {
+            alert('Portfólio: Uma galeria completa dos seus melhores trabalhos.');
+        }
+
+        function showExperience() {
+            alert('Experiência: Timeline detalhada da sua experiência profissional.');
+        }
+
+        function sendMessage() {
+            alert('Mensagem enviada com sucesso! Obrigado pelo contato.');
+        }
+
+        // Navegação por teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight') nextPhase();
+            if (e.key === 'ArrowLeft') previousPhase();
+        });
+
+        // Inicialização
+        updatePhase(0);
+    </script>
+</body>
+</html>
