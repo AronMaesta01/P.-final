@@ -1,0 +1,34 @@
+// Funções de exemplo para os links
+            function showBiography() {
+                alert('Biografia: Aqui você pode criar uma página detalhada sobre sua história, formação e experiências.');
+            }
+
+            function showProjects() {
+                alert('Projetos: Esta seção pode mostrar seus principais trabalhos e realizações.');
+            }
+
+            function showServices() {
+                alert('Serviços: Detalhe aqui os serviços que você oferece aos seus clientes.');
+            }
+
+            function showPortfolio() {
+                alert('Portfólio: Uma galeria completa dos seus melhores trabalhos.');
+            }
+
+            function showExperience() {
+                alert('Experiência: Timeline detalhada da sua experiência profissional.');
+            }
+
+            function sendMessage() {
+                alert('Mensagem enviada com sucesso! Obrigado pelo contato.');
+            }
+
+            // Navegação por teclado
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowRight') nextPhase();
+                if (e.key === 'ArrowLeft') previousPhase();
+            });
+
+            // Inicialização
+            updatePhase(0);
+    
