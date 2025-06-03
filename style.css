@@ -129,7 +129,7 @@ body {
 
 .nav-btn:disabled {
     opacity: 0.5;
-    cursor: not-allowed;
+    cursor: pointer;
 }
 
 /* Indicador de progresso */
@@ -165,7 +165,7 @@ body {
 
 .phase-1 .airplane {
     bottom: 38%;
-    left: 43%;
+    left: 63%;
     transform: rotate(0deg);
 }
 
