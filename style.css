@@ -1,3 +1,4 @@
+ HEAD
 * {
     margin: 0;
     padding: 0;
@@ -435,4 +436,434 @@ header {
   z-index: 9999;
   position: relative;
   pointer-events: auto;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+/* Estrutura principal para garantir footer no final */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    position: relative;
+    background-color: #4682B4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Wrapper para o conteúdo principal */
+.tudo {
+    flex: 1;
+    position: relative;
+    overflow-x: hidden; /* Apenas overflow horizontal escondido */
+}
+
+/* Container principal */
+.timeline-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Avião */
+.airplane {
+    width: 50%;
+    height: 40%;
+    position: absolute;
+    z-index: 25;
+    transition: all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes float {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(calc(100vw + 100px)); }
+}
+
+/* Janela do avião - TAMANHO AUMENTADO */
+.airplane-window {
+    position: absolute;
+    width: 450px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    padding: 30px;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.5s ease;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.2);
+    z-index: 20;
+}
+
+.airplane-window.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.window-content h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+}
+
+.window-content p {
+    color: #34495e;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    font-size: 1.1em;
+}
+
+.window-content a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.window-content a:hover {
+    color: #2980b9;
+}
+
+/* Controles de navegação */
+.navigation {
+    position: fixed;
+    bottom: 120px; /* Aumentado para dar espaço ao footer */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 30;
+}
+
+.nav-btn {
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #2c3e50;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.nav-btn:disabled {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+/* Indicador de progresso */
+.progress-indicator {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 30;
+}
+
+.progress-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+.progress-dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+/* Posições e animações específicas para cada fase - AJUSTADAS PARA PROXIMIDADE DOS CARDS */
+.phase-0 .airplane {
+    bottom: 23%;
+    left: 33%;
+    transform: rotate(0deg);
+}
+
+.phase-1 .airplane {
+    bottom: 38%;
+    left: 63%;
+    transform: rotate(0deg);
+}
+
+.phase-2 .airplane {
+    bottom: 35%;
+    left: 22%;
+    transform: rotate(-5deg);
+}   
+
+.phase-3 .airplane {
+    bottom: 50%;
+    left: 45%;
+    transform: rotate(0deg);
+}
+
+.phase-4 .airplane {
+    bottom: 55%;
+    left: 13%;
+    transform: rotate(-80deg);
+}
+
+.phase-5 .airplane {
+    bottom: 35%;
+    left: 56%;
+    transform: rotate(0deg);
+}
+
+/* Camadas atmosféricas */
+.atmosphere-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.atmosphere-layer.active {
+    opacity: 1;
+}
+
+.troposphere {
+    background: linear-gradient(to bottom, #87CEEB 0%, #4682B4 100%);
+}
+
+.stratosphere {
+    background: url(img/spots-19007.gif);
+}
+
+.mesosphere {
+    background: linear-gradient(to bottom, #1e3c72 0%, #0f1419 100%);
+}
+
+/* Formulário de contato */
+.contact-form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 5px;
+    background: rgba(255,255,255,0.2);
+    color: #2c3e50;
+    font-size: 1em;
+}
+
+.contact-form button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 1em;
+}
+
+.contact-form button:hover {
+    background: #2980b9;
+}
+
+/* Animações especiais */
+@keyframes takeoff {
+    0% { transform: rotate(0deg) translateY(0); }
+    50% { transform: rotate(-20deg) translateY(-50px); }
+    100% { transform: rotate(-15deg) translateY(-100px); }
+}
+
+@keyframes landing {
+    0% { transform: rotate(0deg) translateY(-50px); }
+    50% { transform: rotate(10deg) translateY(-20px); }
+    100% { transform: rotate(0deg) translateY(0); }
+}
+
+.takeoff-animation {
+    animation: takeoff 2s ease-in-out;
+}
+
+.landing-animation {
+    animation: landing 2s ease-in-out;
+}
+
+/* Footer fixo no final da página */
+footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: #fff;
+    padding: 5px 0;
+    text-align: center;
+    margin-top: auto; /* Empurra o footer para o final */
+    position: relative;
+    z-index: 35;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+footer h1 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #ecf0f1;
+    font-weight: normal;
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-container p {
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    color: #bdc3c7;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background: rgba(52, 152, 219, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(52, 152, 219, 0.3);
+}
+
+.social-links a:hover {
+    color: #2980b9;
+    background: rgba(52, 152, 219, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .airplane-window {
+        width: 320px;
+        height: 280px;
+        padding: 20px;
+        max-height: 350px;
+        overflow-y: auto;
+    }
+
+    .window-content h2 {
+        font-size: 1.4em;
+    }
+
+    .window-content p {
+        font-size: 1em;
+    }
+
+    .navigation {
+        bottom: 130px; /* Mais espaço em mobile também */
+        gap: 15px;
+    }
+
+    .nav-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+
+
+
+    footer {
+        
+        padding: 5px 0!important;
+    }
+    
+    footer h1 {
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
+    
+    
+}
+
+
+
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 40px;
+  background: transparent;
+  z-index: 50;
+
+  display: flex;
+  justify-content: space-between; /* logo à esquerda, links à direita */
+  align-items: flex-start; /* alinha ao topo */
+}
+
+
+/* Logo ARON estilizada */
+.logo {
+    align-items: end;
+  font-size: 1.8em;
+  font-weight: bold;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  text-shadow: 0 10px 4px rgba(0, 0, 0, 0.4);
+}
+
+.social-links {
+  display: flex;
+  gap:  15px;
+}
+
+.social-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 10px 10px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: background 0.3s ease;
+}
+
+.social-links a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+.airplane-window a {
+  z-index: 9999;
+  position: relative;
+  pointer-events: auto;}
