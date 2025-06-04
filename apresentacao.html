@@ -51,20 +51,22 @@
         }
 
         .profile-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: url(img/13ae7bdd-7eb5-4f42-ab98-962de9bb6fcb-removebg-preview.png);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 48px;
-            font-weight: bold;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: url("img/WhatsApp\ Image\ 2025-05-30\ at\ 16.25.06.jpeg") no-repeat center center;
+    background-size: cover; /* ou 'contain', veja abaixo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
 
         .profile-photo:hover {
             transform: scale(1.05) rotate(5deg);
@@ -213,6 +215,14 @@
             transform: scale(1.03);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
+        .gallery-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
 
         .back-button {
             position: fixed;
@@ -300,15 +310,15 @@
                     
                 </div>
                 <div class="profile-info">
-                    <h1>Seu Nome</h1>
+                    <h1>Aron Maestá</h1>
                     <p class="title">Cursando Desenvolvimento de sistemas  / Aluno</p>
                     <p>Profissional apaixonado por tecnologia e design, sempre em busca de novos desafios e oportunidades de crescimento.</p>
                     <div class="contact-info">
                         <div class="contact-item">
-                            📧 email@exemplo.com
+                            📧 aronmaesta@gmail.com
                         </div>
                         <div class="contact-item">
-                            📱 (11) 99999-9999
+                            📱 (11) 977981506
                         </div>
                         <div class="contact-item">
                             📍 São Paulo, SP
@@ -336,27 +346,22 @@
             <div class="skills-grid">
                 <div class="skill-item">
                     <h3>💻 Desenvolvimento Web</h3>
-                    <p>HTML, CSS, JavaScript, React</p>
+                    <p>HTML, CSS, Prototipagem</p>
                 </div>
                 <div class="skill-item">
                     <h3>🎨 Design</h3>
-                    <p>UI/UX, Photoshop, Figma</p>
+                    <p>Figma, responsividade, grid, id input, key frame e
+                        formas. </p>
                 </div>
-                <div class="skill-item">
-                    <h3>⚙️ Backend</h3>
-                    <p>Node.js, Python, Databases</p>
-                </div>
-                <div class="skill-item">
-                    <h3>📱 Mobile</h3>
-                    <p>React Native, Flutter</p>
-                </div>
+                
+                
                 <div class="skill-item">
                     <h3>🔧 Ferramentas</h3>
-                    <p>Git, Docker, AWS</p>
+                    <p>Git, Github</p>
                 </div>
                 <div class="skill-item">
                     <h3>💡 Soft Skills</h3>
-                    <p>Liderança, Comunicação, Criatividade</p>
+                    <p>Liderança, Comunicação, Criatividade, Disciplina</p>
                 </div>
             </div>
         </div>
@@ -365,7 +370,7 @@
             <h2>Galeria de Fotos</h2>
             <div class="gallery">
                 <div class="gallery-item" onclick="showPhotoModal('Foto Profissional 1')">
-                    📷 Foto Profissional 1
+                    <img src="img/WhatsApp Image 2025-05-30 at 16.27.04.jpeg" alt="">
                 </div>
                 <div class="gallery-item" onclick="showPhotoModal('Foto Profissional 2')">
                     📸 Foto Profissional 2

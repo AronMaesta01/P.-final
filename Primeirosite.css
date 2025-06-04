@@ -1,0 +1,289 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+ 
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f2f9ff;
+    color: #333;
+
+  }
+
+
+  
+  header {  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0077b6;
+    color: white;
+    padding: 20px;
+    
+
+    
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0077b6;
+      color: white;
+      padding: 20px;
+    
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000; /* Garante que o header fique por cima dos outros elementos */
+    
+    
+  }
+  
+
+
+  .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .destaque {
+    display: flex;
+    gap: 20px;
+    padding: 40px 20px;
+  }
+  
+  
+
+
+
+
+
+
+  
+  .card-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 120px;
+  }
+  
+  .flip-card {
+    width: 550px;
+    height: 420px;
+    perspective: 1000px;
+  }
+  
+  .flip-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .flip-card:hover .flip-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-front,
+  .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  .front1 {
+    background-image: url("Captura de tela 2025-04-09 165122.png");
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .front2 {
+    background-image: url("Captura de tela 2025-04-09 165122.png");
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .flip-back {
+    background-color: white;
+    transform: rotateY(180deg);
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+  
+  .flip-back h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+  }
+  
+  .flip-back p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+
+
+
+
+
+
+
+  
+  .cards {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 30px;
+   
+  }
+  
+  .card {
+    flex: 1;
+    background-color: #caf0f8;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    
+  }
+  
+  .participe {
+    background-color: #90e0ef;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .participe button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  footer {
+    background-color: #023e8a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+  }
+  
+  div img{
+    height: 200px;
+    width: 300px;
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  section h2{
+    text-align: center;
+  }
+
+
+
+
+
+
+  form {
+    
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    box-sizing: border-box;
+  }
+  
+  form h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+  }
+  
+  form p {
+    margin-bottom: 30px;
+  }
+  
+  form div {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: left;
+  }
+  
+  form input,
+  form textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  form textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  button {
+    background-color: #0077c2;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #005fa3;
+  }
+
+
+
+
+
+
+.front1 img{
+ width: 5500px;
+height: 380px;
+
+}
+
+.front2 img{
+width: 550px;
+height: 380px;
+}

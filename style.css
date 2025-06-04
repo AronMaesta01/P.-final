@@ -129,7 +129,7 @@ body {
 
 .nav-btn:disabled {
     opacity: 0.5;
-    cursor: not-allowed;
+    cursor: pointer;
 }
 
 /* Indicador de progresso */
@@ -165,26 +165,26 @@ body {
 
 .phase-1 .airplane {
     bottom: 38%;
-    left: 43%;
+    left: 63%;
     transform: rotate(0deg);
 }
 
 .phase-2 .airplane {
-    bottom: 35%;
-    left: 22%;
-    transform: rotate(-5deg);
+    bottom: 12%;
+    left: 29%;
+    transform: rotate(10deg);
 }   
 
 .phase-3 .airplane {
-    bottom: 50%;
-    left: 45%;
-    transform: rotate(0deg);
+    bottom: 60%;
+    left: 2%;
+    transform: rotate(-160deg);
 }
 
 .phase-4 .airplane {
-    bottom: 55%;
-    left: 13%;
-    transform: rotate(-80deg);
+    bottom: 65%;
+    left: 75%;
+    transform: rotate(-20deg);
 }
 
 .phase-5 .airplane {
@@ -221,9 +221,11 @@ body {
 /* Formulário de contato */
 .contact-form {
     background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
+    padding: 15px;
     border-radius: 10px;
     margin-top: 15px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .contact-form input,
@@ -236,22 +238,27 @@ body {
     background: rgba(255,255,255,0.2);
     color: #2c3e50;
     font-size: 1em;
+    box-sizing: border-box;
 }
 
 .contact-form button {
     background: #3498db;
     color: white;
     border: none;
-    padding: 12px 24px;
+    padding: 12px;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease;
     font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .contact-form button:hover {
     background: #2980b9;
 }
+
+
 
 /* Animações especiais */
 @keyframes takeoff {
